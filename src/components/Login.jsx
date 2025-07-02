@@ -1,43 +1,75 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import "./../styles/Login.css";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [wachtwoord, setWachtwoord] = useState("");
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    wachtwoord: "",
+  });
 
-  const handleLogin = (e) => {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  // ❌ Block access if already logged in
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      navigate("/");
+    }
+  }, [navigate]);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError("");
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find((u) => u.email === email);
+    const user = users.find((u) => u.email === formData.email);
 
-    if (user && bcrypt.compareSync(wachtwoord, user.wachtwoord)) {
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
-      alert(`Welkom, ${user.gebruikersnaam}!`);
-    } else {
-      setError("Onjuiste e-mailadres of wachtwoord");
+    if (!user) {
+      setError("Gebruiker niet gevonden");
+      return;
     }
+
+    const isPasswordCorrect = bcrypt.compareSync(
+      formData.wachtwoord,
+      user.wachtwoord
+    );
+
+    if (!isPasswordCorrect) {
+      setError("Ongeldig wachtwoord");
+      return;
+    }
+
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    alert("Succesvol ingelogd!");
+    navigate("/");
   };
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
+      <form className="login-form" onSubmit={handleSubmit}>
         <h2>Inloggen</h2>
 
         <label>E-mailadres</label>
         <input
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
         />
 
         <label>Wachtwoord</label>
         <input
           type="password"
-          value={wachtwoord}
-          onChange={(e) => setWachtwoord(e.target.value)}
+          name="wachtwoord"
+          value={formData.wachtwoord}
+          onChange={handleChange}
         />
 
         {error && <span className="error">{error}</span>}

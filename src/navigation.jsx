@@ -16,6 +16,9 @@ const Navigation = () => {
             <li>
                 <link  to='/login'>Login</link>
             </li>
+                        <li>
+                <link  to='/logout'>Logout</link>
+            </li>
             <li>
                 <link  to='/review'>review</link>
             </li>

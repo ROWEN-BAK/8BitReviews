@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import "./../styles/Register.css";
 
@@ -11,6 +12,15 @@ export default function Register() {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  // ❌ Block access if already logged in
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      navigate("/"); // Redirect to home
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,8 +45,7 @@ export default function Register() {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      const existingUsers =
-        JSON.parse(localStorage.getItem("users")) || [];
+      const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
       const emailExists = existingUsers.some(
         (user) => user.email === formData.email
@@ -49,14 +58,17 @@ export default function Register() {
 
       const hashedPassword = bcrypt.hashSync(formData.wachtwoord, 10);
 
-      existingUsers.push({
+      const newUser = {
         gebruikersnaam: formData.gebruikersnaam,
         email: formData.email,
         wachtwoord: hashedPassword,
-      });
+      };
 
+      existingUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(existingUsers));
-      alert("Registratie succesvol!");
+
+      alert("Registratie succesvol! Je kunt nu inloggen.");
+      navigate("/login");
     }
   };
 
