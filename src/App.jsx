@@ -1,28 +1,31 @@
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './Home'
-import Catalog from './catalog'
-import Register from './register'
-import Login from '/login'
-import Review from '/review'
-import Navigation from '/navigation'
+import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Register from './components/Register';
+import Login from './components/Login';
+
+// 👇 Comment or add these only if the components exist
+// import Catalog from './components/Catalog';
+// import Review from './components/Review';
+// import Navigation from './components/Navigation';
 
 function App() {
-
   return (
     <div className='App'>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Navigation/>} />
-      <Route index element={<Home/>} />
-      <Route path='/catalog' element={<Catalog/>} />
-      <Route path='/register' element={<register/>} />
-      <Route path='/login' element={<Login/>} />
-      <Route path='/review' element={<Review/>} />
-    </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        {/* Optional: Add <Navigation /> here if it's a persistent nav bar */}
+        {/* <Navigation /> */}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          {/* Uncomment these if you have the components */}
+          {/* <Route path='/catalog' element={<Catalog />} /> */}
+          {/* <Route path='/review' element={<Review />} /> */}
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
