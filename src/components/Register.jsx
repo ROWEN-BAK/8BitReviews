@@ -47,14 +47,23 @@ export default function Register() {
     if (Object.keys(validationErrors).length === 0) {
       const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-      const emailExists = existingUsers.some(
-        (user) => user.email === formData.email
-      );
+const emailExists = existingUsers.some(
+  (user) => user.email === formData.email
+);
+const usernameExists = existingUsers.some(
+  (user) => user.gebruikersnaam === formData.gebruikersnaam
+);
 
-      if (emailExists) {
-        alert("E-mailadres is al geregistreerd");
-        return;
-      }
+if (emailExists) {
+  alert("E-mailadres is al geregistreerd");
+  return;
+}
+
+if (usernameExists) {
+  alert("Gebruikersnaam is al in gebruik");
+  return;
+}
+
 
       const hashedPassword = bcrypt.hashSync(formData.wachtwoord, 10);
 
