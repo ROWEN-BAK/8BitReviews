@@ -2,13 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #111827;
+  background-color: #000000;
   padding: 15px 30px;
   color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar a {
-  color: #facc15;
+  color: #9C29B7;
   margin: 0 12px;
   text-decoration: none;
   font-weight: 500;
@@ -21,17 +22,17 @@
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color: #facc15;
+  color: #9C29B7;
 }
 
 .user {
   margin-right: 15px;
   font-weight: 500;
-  color: #f0f0f0;
+  color: #9C29B7;
 }
 
 .logout-btn {
-  background-color: #ef4444;
+  background-color: #9C29B7;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -40,5 +41,5 @@
 }
 
 .logout-btn:hover {
-  background-color: #dc2626;
+  background-color: #7b218f;
 }
