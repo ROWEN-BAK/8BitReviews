@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import Navbar from './components/Navbar';
 
 
 // 👇 Comment or add these only if the components exist
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
+      <Navbar />
         {/* Optional: Add <Navigation /> here if it's a persistent nav bar */}
         {/* <Navigation /> */}
         <Routes>
