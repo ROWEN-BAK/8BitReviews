@@ -17,6 +17,7 @@ export default function Navbar() {
       <div className="navbar-left">
         <Link to="/" className="logo">8BitReviews</Link>
         <Link to="/catalog">Catalog</Link>
+          <Link to="/publish">Publiceer spel</Link>
       </div>
 
       <div className="navbar-right">

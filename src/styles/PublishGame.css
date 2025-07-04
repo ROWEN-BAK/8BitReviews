@@ -1,0 +1,40 @@
+.publish-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #1d0b4a;
+  padding: 20px;
+  border-radius: 10px;
+  color: #9c29b7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.publish-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.publish-form label {
+  margin-top: 15px;
+}
+
+.publish-form input,
+.publish-form textarea {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.publish-form button {
+  margin-top: 20px;
+  background-color: #9c29b7;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.publish-form button:hover {
+  background-color: #7b218f;
+}

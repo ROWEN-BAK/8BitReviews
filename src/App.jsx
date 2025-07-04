@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Catalog from './components/Catalog';
 import Logout from './components/Logout';
 import Navbar from './components/Navbar';
+import PublishGame from './components/PublishGame';
 
 
 // 👇 Comment or add these only if the components exist
@@ -25,6 +26,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/catalog' element={<Catalog />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/publish' element={<PublishGame />} />
           <Route path='/login' element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           {/* Uncomment these if you have the components */}

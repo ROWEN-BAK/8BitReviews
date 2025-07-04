@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import games from "../data/games";
+import React, { useState, useEffect } from "react";
+import gamesData from "../data/games";
 import "./../styles/Catalog.css";
 
 export default function Catalog() {
@@ -14,7 +14,6 @@ export default function Catalog() {
     <div className="catalog-page">
       <h1>Spelcatalogus</h1>
 
-      {/* Zoekveld */}
       <input
         type="text"
         placeholder="Zoek op titel..."
