@@ -19,8 +19,6 @@ function App() {
     <div className='App'>
       <BrowserRouter>
       <Navbar />
-        {/* Optional: Add <Navigation /> here if it's a persistent nav bar */}
-        {/* <Navigation /> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
@@ -29,9 +27,6 @@ function App() {
           <Route path='/publish' element={<PublishGame />} />
           <Route path='/login' element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-          {/* Uncomment these if you have the components */}
-          {/* <Route path='/catalog' element={<Catalog />} /> */}
-          {/* <Route path='/review' element={<Review />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

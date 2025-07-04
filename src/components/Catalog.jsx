@@ -7,7 +7,7 @@ export default function Catalog() {
   const [selectedGame, setSelectedGame] = useState(null);
   const [allGames, setAllGames] = useState([]);
 
-  // Load static and local games
+
   useEffect(() => {
     const publishedGames = JSON.parse(localStorage.getItem("publishedGames")) || [];
     setAllGames([...gamesData, ...publishedGames]);

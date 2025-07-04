@@ -14,11 +14,11 @@ export default function Register() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  // ❌ Block access if already logged in
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("loggedInUser");
     if (loggedInUser) {
-      navigate("/"); // Redirect to home
+      navigate("/"); 
     }
   }, [navigate]);
 
