@@ -1,0 +1,172 @@
+/* HomePage.css */
+
+/* Kleurenpalet */
+:root {
+  --purple-dark: #2E1572;
+  --purple-accent: #9C29B7;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+/* Algemene styling */
+body, .homepage {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--purple-dark);
+  color: var(--white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background-color: var(--black);
+  padding: 1.5rem;
+  border-bottom: 4px solid var(--purple-accent);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  color: var(--purple-accent);
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Main content */
+.main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInDown 0.7s ease;
+}
+
+.subtitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--purple-accent);
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--white);
+}
+
+/* Review kaarten */
+.reviews {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  background-color: var(--black);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--purple-accent);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--purple-accent);
+}
+
+.card-title {
+  color: var(--purple-accent);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+.card-text {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--black);
+  text-align: center;
+  color: var(--white);
+  padding: 1.2rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--purple-accent);
+  font-size: 0.95rem;
+}
+
+/* Animaties */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.intro-card {
+  background-color: var(--black);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--purple-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  max-width: 600px;
+  width: 100%;
+}
+
+.cta-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--purple-accent);
+  border: none;
+  border-radius: 0.75rem;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #b63bc5;
+}

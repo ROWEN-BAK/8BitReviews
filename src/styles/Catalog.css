@@ -1,0 +1,48 @@
+.catalog-page {
+  background-color: #2E1572;
+  color: #9C29B7;
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+.catalog-page h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 25px;
+  padding: 20px;
+}
+
+
+.game-card {
+  background-color: #1a1a1a; /* Black-ish */
+  border: 1px solid #9C29B7;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.2s ease;
+  color: #9C29B7;
+}
+
+.game-card:hover {
+  transform: scale(1.03);
+  background-color: #2a2a2a; /* Slightly lighter on hover */
+}
+
+@media (max-width: 900px) {
+  .game-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .game-grid {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+}
