@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import games from "../data/games";
 import "./../styles/Catalog.css";
+import Reviews from "./components/Reviews.jsx";
 
 export default function Catalog() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -57,6 +58,15 @@ export default function Catalog() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function Review() {
+  return (
+    <div>
+      {/* Voorbeeld met ingelogde gebruiker "emma" */}
+      <Reviews currentUser="emma" />
     </div>
   );
 }
