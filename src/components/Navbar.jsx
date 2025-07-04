@@ -16,7 +16,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-left">
         <Link to="/" className="logo">8BitReviews</Link>
-        <Link to="/games">Games</Link>
+        <Link to="/catalog">Catalog</Link>
       </div>
 
       <div className="navbar-right">
