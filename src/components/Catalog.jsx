@@ -4,9 +4,16 @@ import "./../styles/Catalog.css";
 
 export default function Catalog() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedGame, setSelectedGame] = useState(null); // ← gekozen game
+  const [selectedGame, setSelectedGame] = useState(null);
+  const [allGames, setAllGames] = useState([]);
 
-  const filteredGames = games.filter((game) =>
+  // Load static and local games
+  useEffect(() => {
+    const publishedGames = JSON.parse(localStorage.getItem("publishedGames")) || [];
+    setAllGames([...gamesData, ...publishedGames]);
+  }, []);
+
+  const filteredGames = allGames.filter((game) =>
     game.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -22,7 +29,6 @@ export default function Catalog() {
         className="search-input"
       />
 
-      {/* Game Cards */}
       <div className="game-grid">
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
@@ -41,7 +47,6 @@ export default function Catalog() {
         )}
       </div>
 
-      {/* Detail Modal Card */}
       {selectedGame && (
         <div className="modal-overlay" onClick={() => setSelectedGame(null)}>
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
