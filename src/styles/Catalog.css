@@ -46,3 +46,26 @@
     grid-template-columns: 1fr; /* 1 card per row */
   }
 }
+
+.search-input {
+  display: block;
+  margin: 0 auto 30px auto; /* center via auto margins */
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  text-align: center; /* optioneel: tekst gecentreerd */
+}
+
+.no-results {
+  font-size: 1.5rem;           /* Grotere tekst */
+  font-weight: 500;
+  color: #9C29B7;              /* Paars zoals gevraagd */
+  text-align: center;          /* Horizontaal centreren */
+  margin-top: 60px;
+}
+

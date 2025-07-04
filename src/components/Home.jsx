@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import "../../src/styles/Home.css";
 
